@@ -14,11 +14,6 @@ app.use(cors());
 mongoose.set('strictQuery', false);
 dotenv.config();
 
-// mongoose
-//   .connect(process.env.MONGO_URL)
-//   .then(() => console.log("DB Connection Successful"))
-//   .catch((error) => console.log(error));
-
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URL);
@@ -47,10 +42,6 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
-
-// app.listen(process.env.PORT || 5000, () => {
-//   console.log("Backend server is running.");
-// })
 
 connectDB().then(() => {
   app.listen(port, () => {
