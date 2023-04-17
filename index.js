@@ -29,15 +29,15 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Kwasanti District Rest API");
 });
 
-app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self' http://localhost:5000");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Content-Security-Policy", "default-src 'self' http://localhost:5000");
+//   next();
+// });
 
-app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", `script-src 'self' 'nonce-${nonce}'`);
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Content-Security-Policy", `script-src 'self' 'nonce-${nonce}'`);
+//   next();
+// });
 
 app.use(express.json());
 app.use("/api/auth", authRoute);
